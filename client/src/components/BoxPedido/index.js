@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import * as C from './style';
-/* import {
+import {
     FaRegArrowAltCircleUp,
     FaRegArrowAltCircleDown,
     FaTrash,
-} from 'react-icons/fa'; */
+} from 'react-icons/fa';
 
 function BoxPedido({ pedido, produtos }) {
 
