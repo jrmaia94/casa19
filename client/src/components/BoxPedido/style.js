@@ -11,6 +11,10 @@ export const Item = styled.div`
     width: 100%;
     height: 55px;
     color: ${(props) => (props.cor)};
+    transition: .6s;
+    align-self: baseline;
+
+
 `;
 
 

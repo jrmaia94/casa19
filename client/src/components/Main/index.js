@@ -2,8 +2,16 @@ import React, { useEffect, useState } from 'react';
 import CardProduto from '../CardProduto';
 import Column from '../Column';
 import * as C from './style';
+import { FaPlus } from 'react-icons/fa';
+import FormNovoPedido from '../FormNovoPedido';
 
 function Main({ pedidos, pageRender, produtos }) {
+
+    const [ showForm, setShowForm ] = useState(false)
+
+    function callForm(){
+        setShowForm(true)
+    }
 
     if(pageRender === "Pedidos" && pedidos.length > 0){
         return (
@@ -13,6 +21,15 @@ function Main({ pedidos, pageRender, produtos }) {
                 <Column produtos={produtos} title='20:30' pedidos={pedidos.filter(e => e.horaEntrega === "20:30")}/>
                 <Column produtos={produtos} title='21:00' pedidos={pedidos.filter(e => e.horaEntrega === "21:00")}/>
                 <Column produtos={produtos} title='21:30' pedidos={pedidos.filter(e => e.horaEntrega === "21:30")}/>
+                <C.BtnAdd onClick={callForm}>
+                    <FaPlus/>
+                </C.BtnAdd>
+
+                {showForm && (
+                    <C.ContainerForm>
+                        <FormNovoPedido produtos={produtos}/>
+                    </C.ContainerForm>
+                )}
             </C.ContainerPedidos>
         )
     }
@@ -21,8 +38,11 @@ function Main({ pedidos, pageRender, produtos }) {
         return (
             <C.ContainerProdutos>
                 {produtos.map( produto => (
-                    <CardProduto key={produto.id} produto={produto}/>
+                    <CardProduto key={produto.idprodutos} produto={produto}/>
                 ))}
+                <C.BtnAdd onClick={callForm}>
+                    <FaPlus/>
+                </C.BtnAdd>
             </C.ContainerProdutos>
         )
     }

@@ -4,12 +4,13 @@ import * as Config from '../../config/moneyConfig'
 
 function CardProduto({ produto }) {
     let address = `./${produto.nome}.jpg`
-    let valor = Config.valueToString(produto.valor);
+    let valor = Config.valueToString(produto.preco);
+    console.log(address);
     return (
         <C.Card>
             <C.Picture src={address}></C.Picture>
             <C.TitleProduto>{produto.nome}</C.TitleProduto>
-            <C.DescProduto>{produto.desc}</C.DescProduto>
+            <C.DescProduto>{produto.descricao}</C.DescProduto>
             <C.DescProduto>{valor}</C.DescProduto>
         </C.Card>
     )

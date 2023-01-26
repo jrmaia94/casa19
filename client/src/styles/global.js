@@ -9,6 +9,7 @@ const Global = createGlobalStyle`
     };
 
     body {
+        color: #252525;
         font-family: 'Josefin Sans', sans-serif;
         background-image: url('./background.jpg');
         background-size: cover;
