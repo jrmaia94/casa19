@@ -13,6 +13,7 @@ function App() {
 
     const [ pedidos, setPedidos ] = useState([]);
     const [ produtos, setProdutos ] = useState([]);
+    const [ adicionais, setAdicionais ] = useState([]);
 
     const [pageRender, setPageRender ] = useState("Pedidos");
     
@@ -37,7 +38,20 @@ function App() {
                     setErros(err);
                 }, 3000)
                 setErros([err])
-            })
+            });
+
+        Axios.get('http://localhost:3001/adicionais')
+            .then((response) => {
+                setAdicionais(response.data)
+            }).catch((err) => {
+                setTimeout(() => {
+                    console.log(err)
+                    setErros(err);
+                }, 3000)
+                setErros([err])
+            });
+        
+        
     }, [])
 
     const onClick = (btn) => {
@@ -47,7 +61,7 @@ function App() {
     return (
         <>
             <Header onClick={onClick} />
-            <Main pageRender={pageRender} pedidos={pedidos} produtos={produtos} />
+            <Main adicionais={adicionais} pageRender={pageRender} pedidos={pedidos} produtos={produtos} />
             {(erros.length > 0) && (<Error />)}
             <GlobalStyle />
         </>

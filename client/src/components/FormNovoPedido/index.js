@@ -3,12 +3,13 @@ import * as C from './style'
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr'
 import UseFormPedido from '../UseFormPedido';
 import SelectOptionPedido from '../SelectOptionPedido';
+import SelectAdcPedido from '../SelectAdcsPedido';
 
-function FormNovoPedido({ produtos }) {
+function FormNovoPedido({ produtos, adicionais }) {
     return (
         <C.FormBox>
             
-            <SelectOptionPedido produtos={produtos}/>
+            <SelectAdcPedido adicionais={adicionais}/>
 
 
             <C.BoxBtn>

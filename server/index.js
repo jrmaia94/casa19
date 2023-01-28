@@ -51,6 +51,20 @@ app.get('/pedidos', (req, res) => {
 
 })
 
+app.get('/adicionais', (req, res) => {
+
+    let SQL = "SELECT * FROM adicionais";
+
+    db.query(SQL, (err, result) => {
+        if(err){
+            res.status(300).send(err)
+        } else {
+            res.status(200).send(result)
+        }
+    })
+
+})
+
 app.listen(3001, () => {
     console.log('rodando server')
 })

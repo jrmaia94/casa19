@@ -7,13 +7,13 @@ export const FormBox = styled.div`
 
 export const BoxBtn = styled.div`
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 `;
 
 export const BtnNextPrev = styled.button`
     display: flex;
     font-size: 1.7em;
-    width: 50%;
+    width: 15%;
     height: 50px;
     justify-content: center;
     align-items: center;
