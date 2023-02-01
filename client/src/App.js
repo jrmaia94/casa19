@@ -3,9 +3,7 @@ import GlobalStyle from './styles/global';
 import Header from './components/Header';
 import Main from './components/Main';
 import Axios from 'axios';
-import * as dataParse from './config/dataParse';
 import Error from './components/Error';
-import BackgroundSmoke from './components/BackgroundSmoke';
 
 function App() {
 

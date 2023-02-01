@@ -1,20 +1,20 @@
 import styled from "styled-components";
 
 export const Item = styled.div`
+    cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items:center;
     padding: 5px;
-    background-color: #ffd473;
     border-radius: 10px;
     margin-bottom: 5px;
-    width: 100%;
-    height: 55px;
+    width: ${(props) => (props.hover ? "100%" : "100%")};
+    z-index: ${(props) => (props.hover && "30")};
+    background-color: ${(props) => (props.hover ? "#fae6b9" : "#ffd473")};
+    height: ${(props) => (props.hover ? '25%' : '10%')};
     color: ${(props) => (props.cor)};
-    transition: .6s;
+    transition: 0.6s;
     align-self: baseline;
-
-
 `;
 
 
@@ -69,5 +69,5 @@ export const Obs = styled.div`
 `;
 
 export const CardPedido = styled.div`
-    display: none
+    display: none;
 `;

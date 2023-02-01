@@ -7,8 +7,8 @@ function SelectAdcPedido({ adicionais }) {
     console.log(adicionais)
     return (
         <C.Container>
-            {adicionais.map( e => (
-                <CardAdcs adicional={e} origem='form'/>
+            {adicionais.map( (e, index) => (
+                <CardAdcs key={index} adicional={e} origem='form'/>
             ))}
         </C.Container>
     )

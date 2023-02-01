@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import BoxPedido from '../BoxPedido';
 import * as C from './style';
 

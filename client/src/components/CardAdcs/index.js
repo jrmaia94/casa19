@@ -1,10 +1,8 @@
 import React from 'react';
 import * as C from './style';
-import * as Config from '../../config/moneyConfig'
 
 function CardAdcs({ adicional, origem }) {
     let address = `./${adicional.abrev}.png`
-    let valor = Config.valueToString(adicional.preco);
     return (
         <C.Card className='card' origem={origem}>
             <C.Panel origem={origem}>

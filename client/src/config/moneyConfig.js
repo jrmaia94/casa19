@@ -2,7 +2,7 @@ export const valueToString = (value) => {
     value = parseFloat(value)
     var reais = parseInt(value);
     var centavos = Math.round(parseInt((value - reais) * 1000)/10);
-    var centavos = centavos.toString()
+    centavos = centavos.toString()
 
     if(centavos.length < 2)centavos = `0${centavos}`
     
@@ -14,7 +14,7 @@ export const valueToString = (value) => {
     for (let i = arrNumeros.length - 1; i >= 0; i--) {
         numeroPontuado = `${arrNumeros[i]}${numeroPontuado}`;
         
-        if(numeroControle % 3 == 0) numeroPontuado = `.${numeroPontuado}`
+        if(numeroControle % 3 === 0) numeroPontuado = `.${numeroPontuado}`
         
         numeroControle++
     }

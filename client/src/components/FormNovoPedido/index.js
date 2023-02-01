@@ -5,18 +5,25 @@ import UseFormPedido from '../UseFormPedido';
 import SelectOptionPedido from '../SelectOptionPedido';
 import SelectAdcPedido from '../SelectAdcsPedido';
 
+// Hooks
+import useForm from '../../hooks/useForm';
+
 function FormNovoPedido({ produtos, adicionais }) {
+
+    const formComponents = [ <UseFormPedido />, <SelectOptionPedido produtos={produtos} />, <SelectAdcPedido adicionais={adicionais} />]
+
+    const {currentStep, currentComponent, changeStep} = useForm(formComponents)
+
     return (
         <C.FormBox>
-            
-            <SelectAdcPedido adicionais={adicionais}/>
 
+            {currentComponent}
 
             <C.BoxBtn>
-                <C.BtnNextPrev type='Submit' direction='next'>
+                <C.BtnNextPrev currentStep={currentStep} onClick={() => changeStep( currentStep - 1)} type='button' direction='prev'>
                     <GrFormPrevious/>
                 </C.BtnNextPrev>
-                <C.BtnNextPrev type='button' direction='prev'>
+                <C.BtnNextPrev lastStep={formComponents.length - 1} currentStep={currentStep} onClick={(e) => changeStep(currentStep + 1, e)} type='button' direction='next'>
                     <GrFormNext/>
                 </C.BtnNextPrev>
             </C.BoxBtn>

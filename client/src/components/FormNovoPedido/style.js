@@ -20,8 +20,10 @@ export const BtnNextPrev = styled.button`
     border: 1px solid transparent;
     background-color: rgba( 240, 240, 240, 0.4);
     transition: .3s;
-    border-radius: ${(props) => (props.direction === "prev" && "0px 12px 12px 0px")};
-    border-radius: ${(props) => (props.direction === "next" && "12px 0px 0px 12px")};
+    border-radius: ${(props) => (props.direction === "next" && "0px 12px 12px 0px")};
+    border-radius: ${(props) => (props.direction === "prev" && "12px 0px 0px 12px")};
+    opacity: ${(props) => {if(props.direction === 'prev' && props.currentStep === 0) return "0"}};
+    opacity: ${(props) => {if(props.direction === 'next' && props.currentStep === props.lastStep) return "0"}};
     
     :hover{
         background-color: rgba( 240, 240, 240, 0.8);
