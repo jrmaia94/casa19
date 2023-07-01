@@ -6,11 +6,7 @@ import {
 import Column from '../elements/Column';
 import { AiFillPlusCircle } from 'react-icons/ai';
 import '../../styles/pagePedidos.css';
-<<<<<<< HEAD
-import {ObjDateForString, StrDateForObj} from '../../config/dataParse';
-=======
 import {ObjDateForString} from '../../config/dataParse';
->>>>>>> 8b2930b185456ecc4f462a4502209c1480559f42
 import configPedido from '../../config/configPedido';
 import Axios from 'axios';
 import SpanLoading from '../elements/SpanLoading'
@@ -38,11 +34,7 @@ function PagePedidos({setPedidos, data, functOnClick, pedidos, produtos}){
         if(['19:30', '20:00', '20:30', '21:00', '21:30'].includes(colunaDestino)){
             pedido.horaEntrega = colunaDestino
             setAtualizandoDados(true)
-<<<<<<< HEAD
             Axios.patch('https://api-casa19-c48b6c3b172e.herokuapp.com/pedidos',
-=======
-            Axios.patch('http://localhost:3001/pedidos',
->>>>>>> 8b2930b185456ecc4f462a4502209c1480559f42
                 configPedido(
                     pedido.idpedidos,
                     pedido.data,
@@ -65,7 +57,6 @@ function PagePedidos({setPedidos, data, functOnClick, pedidos, produtos}){
                 })
         }
     }
-<<<<<<< HEAD
 
     const [pedidosFiltrados, setPedidosFiltrados] = useState([])
     useEffect(() => {
@@ -80,10 +71,6 @@ function PagePedidos({setPedidos, data, functOnClick, pedidos, produtos}){
         })
         
     }, [pedidos, data])
-=======
-    
-    const pedidosFiltrados = pedidos.filter( e => ObjDateForString(new Date(e.data)) === data)
->>>>>>> 8b2930b185456ecc4f462a4502209c1480559f42
     var idPedido
     var idCarrinho
 
@@ -124,11 +111,7 @@ function PagePedidos({setPedidos, data, functOnClick, pedidos, produtos}){
             setConfirmarDeletePedido(true)
         }else{
             setAtualizandoDados(true)
-<<<<<<< HEAD
             Axios.delete(`https://api-casa19-c48b6c3b172e.herokuapp.com/pedidos/${idPedido}`)
-=======
-            Axios.delete(`http://localhost:3001/pedidos/${idPedido}`)
->>>>>>> 8b2930b185456ecc4f462a4502209c1480559f42
                 .then((response) => {
                     setTimeout(() => {
                         setAtualizandoDados(false)
@@ -153,11 +136,7 @@ function PagePedidos({setPedidos, data, functOnClick, pedidos, produtos}){
             var carrinho = JSON.stringify(JSON.parse(pedidosFiltrados.find( p => p.idpedidos === idPedido).carrinho).filter( c => c.id !== idCarrinho))
             pedido.carrinho = carrinho
             
-<<<<<<< HEAD
             Axios.patch('https://api-casa19-c48b6c3b172e.herokuapp.com/pedidos',
-=======
-            Axios.patch('http://localhost:3001/pedidos',
->>>>>>> 8b2930b185456ecc4f462a4502209c1480559f42
                 configPedido(
                     pedido.idpedidos,
                     pedido.data,
@@ -189,11 +168,7 @@ function PagePedidos({setPedidos, data, functOnClick, pedidos, produtos}){
                 })
         }else if(e.target.id === 'btn2'){
             setAtualizandoDados(true)
-<<<<<<< HEAD
             Axios.delete(`https://api-casa19-c48b6c3b172e.herokuapp.com/pedidos/${idPedido}`)
-=======
-            Axios.delete(`http://localhost:3001/pedidos/${idPedido}`)
->>>>>>> 8b2930b185456ecc4f462a4502209c1480559f42
                 .then((response) => {
                     setTimeout(() => {
                         setAtualizandoDados(false)

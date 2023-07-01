@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../../styles/pageAdcPedido.css'
 import CardProduto from '../elements/CardProduto';
 import CardAdc from '../elements/CardAdc';
@@ -14,12 +14,7 @@ import {
     FormGroup,
     Input,
     Label,
-<<<<<<< HEAD
-    Button
-=======
     Button,
-    Spinner
->>>>>>> 8b2930b185456ecc4f462a4502209c1480559f42
 } from 'reactstrap';
 import Axios from 'axios';
 import SpanLoading from '../elements/SpanLoading';
@@ -28,7 +23,6 @@ import ErrorRender from '../elements/ErrorRender';
 import ConfirmacaoPedido from '../elements/ConfirmacaoPedido';
 
 function PageAdcPedido({ data, produtos, adicionais, clientes, renderPageControl }) {
-    //console.log('render');
     const [horaEntrega, setHoraEntrega] = useState([
         {
             "valor": "19:30",
@@ -54,11 +48,7 @@ function PageAdcPedido({ data, produtos, adicionais, clientes, renderPageControl
     const [carrinho, setCarrinho] = useState([])
     const [pedido, setPedido] = useState(
         {
-<<<<<<< HEAD
             "data": StrDateForObj(ObjDateForString(data)),
-=======
-            "data": data,
->>>>>>> 8b2930b185456ecc4f462a4502209c1480559f42
             "cliente": "",
             "horaEntrega": "19:30",
             "localEntrega": "",
@@ -130,11 +120,8 @@ function PageAdcPedido({ data, produtos, adicionais, clientes, renderPageControl
                 setNomeCLiente(valor)
             }else{
                 setAtualizandoDados(true)
-<<<<<<< HEAD
+
                 Axios.post('https://api-casa19-c48b6c3b172e.herokuapp.com/clientes', {"nome": valor})
-=======
-                Axios.post('http://localhost:3001/clientes', {"nome": valor})
->>>>>>> 8b2930b185456ecc4f462a4502209c1480559f42
                     .then((response) => {
                         setPedido( prevObj => {
                             const newObj = prevObj
@@ -175,7 +162,7 @@ function PageAdcPedido({ data, produtos, adicionais, clientes, renderPageControl
 
         setHoraEntrega( prevObj => {
             const newObj = [...prevObj]
-            newObj.map( e => {
+            newObj.forEach( e => {
                 e.valor === valor ? e.select = true : e.select = false
             })
 
@@ -193,7 +180,7 @@ function PageAdcPedido({ data, produtos, adicionais, clientes, renderPageControl
 
         setOpcaoSelect( prevObj => {
             const newObj = [...prevObj]
-            newObj.map( i => {
+            newObj.forEach( i => {
                 i.nome === id ? i.select = true : i.select = false
             })
             return newObj            
@@ -236,7 +223,7 @@ function PageAdcPedido({ data, produtos, adicionais, clientes, renderPageControl
 
         setPontosCarne( prevObj => {
             const newObj = [...prevObj]
-            newObj.map( e => {
+            newObj.forEach( e => {
                 e.abrev === idLabel ? e.select = true : e.select = false
             })
 
@@ -324,13 +311,13 @@ function PageAdcPedido({ data, produtos, adicionais, clientes, renderPageControl
     }
 
     function resetForm(i){
-        opcaoSelect.map( e => {
+        opcaoSelect.forEach( e => {
             e.nome === 'Classic'
             ? e.select = true
             : e.select = false
         })
 
-        pontosCarne.map( e => {
+        pontosCarne.forEach( e => {
             e.abrev === 'AP'
             ? e.select = true
             : e.select = false
@@ -338,7 +325,7 @@ function PageAdcPedido({ data, produtos, adicionais, clientes, renderPageControl
 
         setQtdPedido(1)
 
-        adicionaisSelects.map( e => {
+        adicionaisSelects.forEach( e => {
             e.qtd = 0
         })
 
@@ -369,7 +356,7 @@ function PageAdcPedido({ data, produtos, adicionais, clientes, renderPageControl
 
             setHoraEntrega( prevObj => {
                 const newObj = [...prevObj]
-                newObj.map( e => {
+                newObj.forEach( e => {
                     e.valor === '19:30' ? e.select = true : e.select = false
                 })
     
@@ -405,7 +392,7 @@ function PageAdcPedido({ data, produtos, adicionais, clientes, renderPageControl
 
         setOpcaoSelect( prevObj => {
             const newObj = [...prevObj]
-            newObj.map( i => {
+            newObj.forEach( i => {
                 i.id === compraRetirada.opcao ? i.select = true : i.select = false
             })
             return newObj            
@@ -413,7 +400,7 @@ function PageAdcPedido({ data, produtos, adicionais, clientes, renderPageControl
 
         setPontosCarne( prevObj => {
             const newObj = [...prevObj]
-            newObj.map( e => {
+            newObj.forEach( e => {
                 e.abrev === compraRetirada.pontoCarne ? e.select = true : e.select = false
             })
             return newObj
@@ -468,11 +455,8 @@ function PageAdcPedido({ data, produtos, adicionais, clientes, renderPageControl
         if(inconsistencias.length === 0){
             //Cadastro do pedido--------------------------------------------------------
             setAtualizandoDados(true)
-<<<<<<< HEAD
+
             Axios.post('https://api-casa19-c48b6c3b172e.herokuapp.com/pedidos', pedido)
-=======
-            Axios.post('http://localhost:3001/pedidos', pedido)
->>>>>>> 8b2930b185456ecc4f462a4502209c1480559f42
                 .then((response) => {
                     if(response.status === 200){
                         setTimeout(() => {

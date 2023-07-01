@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import PagePedidos from './components/pages/PagePedidos';
 import PageAdcPedido from './components/pages/PageAdcPedido';
-import { StrDateForObj, ObjDateForString } from './config/dataParse';
+import { StrDateForObj } from './config/dataParse';
 import ConfirmacaoData from './components/elements/ConfirmacaoData';
 import PageEntregas from './components/pages/PageEntregas';
 import PagePagamentos from './components/pages/PagePagamentos';
@@ -74,31 +74,19 @@ function App() {
     //Carregar dados ---------------------------------------------------------
 
     useEffect(() => {
-<<<<<<< HEAD
         Axios.get('https://api-casa19-c48b6c3b172e.herokuapp.com/produtos')
-=======
-        Axios.get('http://localhost:3001/produtos')
->>>>>>> 8b2930b185456ecc4f462a4502209c1480559f42
             .then((response) => {
                 setProdutos(response.data)
             }).catch((err) => {
 
             })
-<<<<<<< HEAD
         Axios.get('https://api-casa19-c48b6c3b172e.herokuapp.com/adicionais')
-=======
-        Axios.get('http://localhost:3001/adicionais')
->>>>>>> 8b2930b185456ecc4f462a4502209c1480559f42
             .then((response) => {
                 setAdicionais(response.data)
             }).catch((err) => {
 
             })    
-<<<<<<< HEAD
         Axios.get('https://api-casa19-c48b6c3b172e.herokuapp.com/clientes')
-=======
-        Axios.get('http://localhost:3001/clientes')
->>>>>>> 8b2930b185456ecc4f462a4502209c1480559f42
             .then((response) => {
                 setClientes(response.data)
             }).catch((err) => {
@@ -107,11 +95,7 @@ function App() {
     }, [pageAdcPedido])
         
     useEffect(() => {
-<<<<<<< HEAD
         Axios.get('https://api-casa19-c48b6c3b172e.herokuapp.com/adicionais')
-=======
-        Axios.get('http://localhost:3001/adicionais')
->>>>>>> 8b2930b185456ecc4f462a4502209c1480559f42
             .then((response) => {
                 setAdicionais(response.data)
             }).catch((err) => {
@@ -120,11 +104,8 @@ function App() {
     }, [])
 
     useEffect(() => {
-<<<<<<< HEAD
+
         Axios.get('https://api-casa19-c48b6c3b172e.herokuapp.com/clientes')
-=======
-        Axios.get('http://localhost:3001/clientes')
->>>>>>> 8b2930b185456ecc4f462a4502209c1480559f42
             .then((response) => {
                 setClientes(response.data)
             }).catch((err) => {
@@ -133,19 +114,11 @@ function App() {
     }, [])
 
     useEffect(() => {
-<<<<<<< HEAD
         Axios.get('https://api-casa19-c48b6c3b172e.herokuapp.com/pedidos')
             .then((response) => {
                 setPedidos(response.data)
             }).catch((err) => {
                 console.log(err);
-=======
-        Axios.get('http://localhost:3001/pedidos')
-            .then((response) => {
-                setPedidos(response.data)
-            }).catch((err) => {
-
->>>>>>> 8b2930b185456ecc4f462a4502209c1480559f42
             })
     }, [pagePedidos])
 

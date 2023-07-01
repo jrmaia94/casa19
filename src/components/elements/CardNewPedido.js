@@ -1,5 +1,5 @@
 import React from 'react';
-import { NumberMoneyForStr, StrMoneyForNumber } from '../../config/configMoney'
+import { NumberMoneyForStr } from '../../config/configMoney'
 import '../../styles/cardNewPedido.css'
 
 function CardNewPedido({compra, index, produtos, pontosCarne, editarCompra}) {

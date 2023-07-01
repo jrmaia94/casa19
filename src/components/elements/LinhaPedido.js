@@ -4,7 +4,6 @@ import {
 } from 'reactstrap';
 import {IoTrashOutline} from 'react-icons/io5';
 import '../../styles/pagePedidos.css';
-import Axios from 'axios';
 
 function LinhaPedido({ deletePedido, setAtualizandoDados, pedido, nome, produtos, pedidoOriginal, dragEnd, dragStart }) {
 
@@ -37,7 +36,7 @@ function LinhaPedido({ deletePedido, setAtualizandoDados, pedido, nome, produtos
     var adcs = []
 
     
-    adc.map( e => {
+    adc.forEach( e => {
         var adic = e.abrev
         for(let i = 0; i < e.qtd; i++){
             adic = `+${adic}`

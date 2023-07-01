@@ -1,13 +1,7 @@
 import React from "react";
 import {
-    Button,
     Card,
-    CardTitle,
-    CardText,
-    Container,
-    Row,
-    Col,
-    Table
+    Col
 } from 'reactstrap';
 import CardPedido from "./CardPedido";
 

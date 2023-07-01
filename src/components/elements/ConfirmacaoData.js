@@ -3,7 +3,6 @@ import { ObjDateForString } from '../../config/dataParse';
 import { 
     Card,
     CardTitle,
-    CardText,
     Input,
     Button
 } from 'reactstrap';

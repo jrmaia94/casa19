@@ -1,14 +1,4 @@
 import React from 'react';
-import {
-    Button,
-    Card,
-    CardTitle,
-    CardText,
-    Container,
-    Row,
-    Col,
-    Table
-} from 'reactstrap';
 import LinhaPedido from './LinhaPedido';
 
 function CardPedido({ deletePedido, pedido, produtos, dragEnd, dragStart, setAtualizandoDados }) {
