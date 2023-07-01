@@ -1,0 +1,22 @@
+.btnHover {
+    transition: 300ms !important;
+    opacity: .8;
+}
+
+.btnHover:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.cardPedido{
+    cursor: grab !important;
+    margin-top: 1px !important;
+}
+
+.arrastando{
+    cursor: move !important;
+}
+
+.btnDelete{
+    cursor: pointer;
+}
