@@ -12,7 +12,7 @@ import Axios from 'axios';
 import SpanLoading from '../elements/SpanLoading'
 import Alert from '../elements/Alert';
 
-function PagePedidos({setPedidos, data, functOnClick, pedidos, produtos}){
+function PagePedidos({setPedidos, data, functOnClick, pedidos, produtos, adicionais}){
 
     const [atualizandoDados, setAtualizandoDados] = useState(false)
     const [confirmarDeletePedido, setConfirmarDeletePedido] = useState(false)
@@ -201,11 +201,11 @@ function PagePedidos({setPedidos, data, functOnClick, pedidos, produtos}){
             {atualizandoDados && (<SpanLoading/>)}
             <Container className='d-block bg-warning-subtle'  style={{fontSize:'12px', minWidth:'100%', height:'80%'}}>
                 <Row className='m-0 p-0 w-100 d-flex justify-content-center align-items-start h-100'>
-                    <Column deletePedido={deletePedido} setAtualizandoDados={setAtualizandoDados} dragLeave={dragLeave} dragEnd={dragEnd} dragStart={dragStart} key='horario-1' produtos={produtos} pedidos={pedidosFiltrados.filter(e => e.horaEntrega === "19:30")} titulo='19:30'/>
-                    <Column deletePedido={deletePedido} setAtualizandoDados={setAtualizandoDados} dragLeave={dragLeave} dragEnd={dragEnd} dragStart={dragStart} key='horario-2' produtos={produtos} pedidos={pedidosFiltrados.filter(e => e.horaEntrega === "20:00")} titulo='20:00'/>
-                    <Column deletePedido={deletePedido} setAtualizandoDados={setAtualizandoDados} dragLeave={dragLeave} dragEnd={dragEnd} dragStart={dragStart} key='horario-3' produtos={produtos} pedidos={pedidosFiltrados.filter(e => e.horaEntrega === "20:30")} titulo='20:30'/>
-                    <Column deletePedido={deletePedido} setAtualizandoDados={setAtualizandoDados} dragLeave={dragLeave} dragEnd={dragEnd} dragStart={dragStart} key='horario-4' produtos={produtos} pedidos={pedidosFiltrados.filter(e => e.horaEntrega === "21:00")} titulo='21:00'/>
-                    <Column deletePedido={deletePedido} setAtualizandoDados={setAtualizandoDados} dragLeave={dragLeave} dragEnd={dragEnd} dragStart={dragStart} key='horario-5' produtos={produtos} pedidos={pedidosFiltrados.filter(e => e.horaEntrega === "21:30")} titulo='21:30'/>
+                    <Column adicionais={adicionais} deletePedido={deletePedido} setAtualizandoDados={setAtualizandoDados} dragLeave={dragLeave} dragEnd={dragEnd} dragStart={dragStart} key='horario-1' produtos={produtos} pedidos={pedidosFiltrados.filter(e => e.horaEntrega === "19:30")} titulo='19:30'/>
+                    <Column adicionais={adicionais} deletePedido={deletePedido} setAtualizandoDados={setAtualizandoDados} dragLeave={dragLeave} dragEnd={dragEnd} dragStart={dragStart} key='horario-2' produtos={produtos} pedidos={pedidosFiltrados.filter(e => e.horaEntrega === "20:00")} titulo='20:00'/>
+                    <Column adicionais={adicionais} deletePedido={deletePedido} setAtualizandoDados={setAtualizandoDados} dragLeave={dragLeave} dragEnd={dragEnd} dragStart={dragStart} key='horario-3' produtos={produtos} pedidos={pedidosFiltrados.filter(e => e.horaEntrega === "20:30")} titulo='20:30'/>
+                    <Column adicionais={adicionais} deletePedido={deletePedido} setAtualizandoDados={setAtualizandoDados} dragLeave={dragLeave} dragEnd={dragEnd} dragStart={dragStart} key='horario-4' produtos={produtos} pedidos={pedidosFiltrados.filter(e => e.horaEntrega === "21:00")} titulo='21:00'/>
+                    <Column adicionais={adicionais} deletePedido={deletePedido} setAtualizandoDados={setAtualizandoDados} dragLeave={dragLeave} dragEnd={dragEnd} dragStart={dragStart} key='horario-5' produtos={produtos} pedidos={pedidosFiltrados.filter(e => e.horaEntrega === "21:30")} titulo='21:30'/>
                 </Row>
                 <button id='adcPedido' onClick={() => functOnClick('adcPedido')} color='primary' className='border-0 m-0 p-0 rounded-circle position-absolute z-3 bottom-0 end-0 m-4'>
                     <AiFillPlusCircle className='btnHover fs-1 text-primary z-2'/>
