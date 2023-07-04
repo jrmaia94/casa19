@@ -139,13 +139,19 @@ function PageAdcPedido({ data, produtos, adicionais, clientes, renderPageControl
                         }, 1000);
                     })
             }
-        }else{
+        }else if(e.target.id === 'inputLocal'){
             setPedido( prevObj => {
                 const newObj = prevObj
                 newObj.localEntrega = valor
                 return newObj
             })
             setLocalEntrega(valor)
+        }else if(e.target.id === 'inputObs'){
+            setPedido( prevObj => {
+                const newObj = prevObj
+                newObj.obs = valor
+                return newObj
+            })
         }
     }
 
@@ -520,7 +526,7 @@ function PageAdcPedido({ data, produtos, adicionais, clientes, renderPageControl
             <div id='pageAdcPedido' className='d-flex w-100'>
                 <div className='caixaFormPedido col-8'>
                     <Form className='w-100 p-0 m-0'>
-                        <div className='h-12 border border-bottom-0 rounded border-2 border-secondary-subtle d-flex w-100 align-items-center justify-content-between'>
+                        <div className='border border-bottom-0 rounded border-2 border-secondary-subtle d-flex w-100 align-items-center justify-content-between'>
                             <div className='col-6'>
                                 <Input
                                     bsSize='sm'
@@ -533,13 +539,22 @@ function PageAdcPedido({ data, produtos, adicionais, clientes, renderPageControl
                                 <datalist id='clientesDataList'>
                                     {clientes.length > 0 && clientes.map( e => (<option key={e.idclientes} value={e.nome}/>))}
                                 </datalist>
-                                <Input
-                                    bsSize='sm'
-                                    placeholder='Local de Entrega'
-                                    className='w-90 m-1'
-                                    id='inputLocal'
-                                    onBlur={atualizarPedido}
-                                />
+                                <div className='d-flex'>
+                                    <Input
+                                        bsSize='sm'
+                                        placeholder='Local de Entrega'
+                                        className='w-45 m-1'
+                                        id='inputLocal'
+                                        onBlur={atualizarPedido}
+                                    />
+                                    <Input
+                                        bsSize='sm'
+                                        placeholder='Obs ex.:(Sem cebola)'
+                                        className='w-45 m-1'
+                                        id='inputObs'
+                                        onBlur={atualizarPedido}
+                                    />
+                                </div>
                             </div>
                             <div className='col-5 h-100 d-flex justify-content-between align-items-center me-2'>
                                 {horaEntrega.map( (e, index) => (

@@ -5,7 +5,7 @@ import {
 import {IoTrashOutline} from 'react-icons/io5';
 import '../../styles/pagePedidos.css';
 
-function LinhaPedido({ deletePedido, setAtualizandoDados, pedido, nome, produtos, pedidoOriginal, dragEnd, dragStart }) {
+function LinhaPedido({ obs, deletePedido, setAtualizandoDados, pedido, nome, produtos, pedidoOriginal, dragEnd, dragStart }) {
 
     const [className, setClassName] = useState('m-0 p-0 table-borderless') 
     const [opcao, setOpcao] = useState({"cor": "black"})
@@ -57,8 +57,11 @@ function LinhaPedido({ deletePedido, setAtualizandoDados, pedido, nome, produtos
                             <p className='text-nowrap text-truncate fs-5 m-0 p-0'>
                                 {descr}
                             </p>
-                            {pedido.pontoCarne ==='BP' && (<p className='text-white bg-danger w-18 text-center rounded fw-bold m-0 p-0 ms-3'>{pedido.pontoCarne}</p>)}
-                            {pedido.pontoCarne ==='MP' && (<p className='text-white bg-success w-18 text-center rounded fw-bold m-0 p-0 ms-3'>{pedido.pontoCarne}</p>)}
+                            <div className='d-flex'>
+                                {pedido.pontoCarne ==='BP' && (<p className='text-white bg-danger w-18 text-center rounded fw-bold m-0 p-0 ms-3'>{pedido.pontoCarne}</p>)}
+                                {pedido.pontoCarne ==='MP' && (<p className='text-white bg-success w-18 text-center rounded fw-bold m-0 p-0 ms-3'>{pedido.pontoCarne}</p>)}
+                                {obs && (<p className='text-black p-0 m-0 ms-2'>{obs}</p>)}
+                            </div>
                         </td>
                         <td className='col-4 m-0 p-0 pe-2' style={styleAdc}>
                             {adcs.map( (e,i) => (<div key={`adc-${i}`} className='m-0 p-0 text-end'>{e}</div>))}

@@ -18,3 +18,19 @@
     display: grid !important;
     grid-template-columns: 1fr 1fr 1fr;
 }
+
+.boxInfos{
+    display: flex;
+    position: absolute;
+    z-index:-1;
+    opacity: 0;
+    transition: 300ms;
+}
+
+.boxDescr:hover{
+    .boxInfos{
+        z-index: 3;
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
