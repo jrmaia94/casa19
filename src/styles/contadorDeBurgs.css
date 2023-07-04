@@ -1,0 +1,40 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.contadorDeBurgs{
+    position: fixed;
+    z-index: 0;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    top: -50px;
+    right: -50px;
+    opacity: 0.2;    
+    transition: 3000ms;
+}
+
+.contadorDeBurgs:hover{
+    transition: 600ms;
+    opacity: 1;
+    top: 20px;
+    right: 20px;
+}
+
+.h-10{
+    height: 10% !important;
+}
+
+.w-20{
+    width: 20% !important;
+}
+
+.w-35{
+    width: 35% !important;
+}
+
+.contadorDeBurgs input::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}

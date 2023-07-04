@@ -11,6 +11,7 @@ import configPedido from '../../config/configPedido';
 import Axios from 'axios';
 import SpanLoading from '../elements/SpanLoading'
 import Alert from '../elements/Alert';
+import ContadorBurgs from '../elements/ContadorBurgs';
 
 function PagePedidos({setPedidos, data, functOnClick, pedidos, produtos, adicionais}){
 
@@ -211,6 +212,7 @@ function PagePedidos({setPedidos, data, functOnClick, pedidos, produtos, adicion
                     <AiFillPlusCircle className='btnHover fs-1 text-primary z-2'/>
                 </button>
             </Container>
+            <ContadorBurgs pedidos={pedidosFiltrados} produtos={produtos}/>
         </>
     )
 }
