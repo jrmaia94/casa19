@@ -1,0 +1,40 @@
+.w-10{
+    width: 10% !important;
+}
+
+tbody input, tbody select{
+    padding: 2px;
+    border-radius: 2px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.inputNumber{
+    text-align: end;
+}
+
+.inputNumber::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+tbody input:focus{
+    outline: none;
+}
+
+tbody td, tbody th{
+    background-color: transparent !important;
+}
+
+.btnSalvar{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0.7;
+    scale: 0.9;
+    transition: 0.3s;
+}
+
+.btnSalvar:hover{
+    opacity: 1;
+    scale: 1;
+}

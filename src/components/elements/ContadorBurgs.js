@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../styles/contadorDeBurgs.css'
 
 function ContadorBurgs({pedidos, produtos}) {
-
     var burgs = []
     produtos.forEach( e => {
         burgs.push({
@@ -11,7 +10,6 @@ function ContadorBurgs({pedidos, produtos}) {
             cor: e.cor            
         })
     })
-
     var compras = []
     pedidos.forEach( e => {
         JSON.parse(e.carrinho).forEach( c => {
@@ -34,21 +32,25 @@ function ContadorBurgs({pedidos, produtos}) {
         document.querySelector(`#${controleId}Restantes`).value = e.target.value - document.querySelector(`#${controleId}Vendidos`).value
     }
 
+    function changeInput(e){
+        console.log(e);
+    }
+
     return (
         <div className='contadorDeBurgs w-20 rounded p-2 bg-warning d-flex justify-content-center align-itens-center'>
             <div className=''>
-                <div className='d-flex justify-content-center align-itens-center'>
-                    <div className='fs-10 w-25'>Opção</div>
-                    <div className='fs-10 w-25 d-flex justify-content-center align-itens-center'>Vendidos</div>
-                    <div className='fs-10 w-25 d-flex justify-content-center align-itens-center'>Fabricados</div>
-                    <div className='fs-10 w-25 d-flex justify-content-center align-itens-center'>Restantes</div>
+                <div className='m-2 d-flex justify-content-center align-itens-center'>
+                    <div className='fw-bold fs-10 w-25'>Opção</div>
+                    <div className='fw-bold fs-10 w-25 d-flex justify-content-center align-itens-center'>Vendidos</div>
+                    <div className='fw-bold fs-10 w-25 d-flex justify-content-center align-itens-center'>Fabricados</div>
+                    <div className='fw-bold fs-10 w-25 d-flex justify-content-center align-itens-center'>Restantes</div>
                 </div>
                 {burgs.map( (e, i) => (
-                    <div className='d-flex justify-content-center align-itens-center'>
+                    <div key={i} className='d-flex justify-content-center align-itens-center'>
                         <div className='fs-10 w-25 d-flex justify-content-start align-itens-center'>{e.nome}</div>
-                        <div className='w-25 d-flex justify-content-center align-itens-center'><input autoComplete='off' type='number' id={`${e.nome}Vendidos`} onFocus={e => e.target.blur()} readOnly className='w-50 fs-10 text-center' value={e.qtd}/></div>
-                        <div className='w-25 d-flex justify-content-center align-itens-center'><input tabIndex={i+1} autoComplete='off' type='number' id={`${e.nome}Fabricados`} onBlur={blurInput} className='fs-10 w-50 text-center'/></div>
-                        <div className='w-25 d-flex justify-content-center align-itens-center'><input tabIndex={burgs.length + 1 + i} autoComplete='off' type='number' id={`${e.nome}Restantes`} className='fs-10 w-50 text-center'/></div>
+                        <div className='w-25 d-flex justify-content-center align-itens-center'><input autoComplete='off' type='number' id={`${e.nome}Vendidos`} onChangeCapture={changeInput} onFocus={e => e.target.blur()} readOnly className='w-50 fs-10 text-center' value={e.qtd}/></div>
+                        <div className='w-25 d-flex justify-content-center align-itens-center'><input tabIndex={i+100} autoComplete='off' type='number' id={`${e.nome}Fabricados`} onBlur={blurInput} className='fs-10 w-50 text-center'/></div>
+                        <div className='w-25 d-flex justify-content-center align-itens-center'><input tabIndex={burgs.length + 100 + i} autoComplete='off' type='number' id={`${e.nome}Restantes`} className='fs-10 w-50 text-center'/></div>
                     </div>
                 ))}
             </div>

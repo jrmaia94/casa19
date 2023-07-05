@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import PagePedidos from './components/pages/PagePedidos';
 import PageAdcPedido from './components/pages/PageAdcPedido';
-import { StrDateForObj } from './config/dataParse';
+import { ObjDateForString, StrDateForObj } from './config/dataParse';
 import ConfirmacaoData from './components/elements/ConfirmacaoData';
 import PageEntregas from './components/pages/PageEntregas';
 import PagePagamentos from './components/pages/PagePagamentos';
 import PageRelDeb from './components/pages/PageRelDeb';
 import PageRelGeral from './components/pages/PageRelGeral';
 import Navigation from './components/elements/Navigation';
+import ContadorBurgs from './components/elements/ContadorBurgs';
 import './styles/pagePedidos.css';
 import './styles/colors.css'
 
@@ -128,9 +129,23 @@ function App() {
         setData(data)
         setIsFirstRender(false)
     }
+
+    const [pedidosFiltrados, setPedidosFiltrados] = useState([])
     
+    useEffect(() => {
+        setPedidosFiltrados(prevObj => {
+            const newObj = pedidos.filter( e => {
+                let date = new Date(e.data)
+                date = ObjDateForString(new Date(date.setDate(date.getDate()+1)))
+                return date === data
+            })
+            return newObj
+        })
+    }, [data, pedidos])
+
     return (
         <>
+            {pedidosFiltrados.length > 0 && (<ContadorBurgs pedidos={pedidosFiltrados} produtos={produtos}/>)}
             {isFirstRender && (<ConfirmacaoData confirmData={confirmData}/>)}
             <Navigation onclick={onClick} data={data} setData={setData}/>
 
@@ -140,7 +155,7 @@ function App() {
 
             {pageEntregas && (<PageEntregas/>)}
 
-            {pagePagamentos && (<PagePagamentos/>)}
+            {pagePagamentos && (<PagePagamentos pedidos={pedidos} renderPageControl={renderPageControl} data={data}/>)}
 
             {pageRelDeb && (<PageRelDeb/>)}
 
