@@ -10,7 +10,7 @@ export default function InputCurrency({tabindex, valorPedido}) {
 
     useEffect(() => {
         setValorPlace(valorPedido * 100)
-    }, [])
+    }, [valorPedido])
 
     useEffect(() => {
         setValor(NumberMoneyForStr(valorPlace/100))

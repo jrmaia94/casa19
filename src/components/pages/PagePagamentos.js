@@ -3,7 +3,6 @@ import {
     Table,
     Button
 } from 'reactstrap';
-import { StrMoneyForNumber, NumberMoneyForStr } from '../../config/configMoney';
 import '../../styles/pagePagamentos.css';
 import { ObjDateForString } from '../../config/dataParse.js';
 import InputCurrency from '../elements/InputCurrency';

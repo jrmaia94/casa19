@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
     Card,
     Col
@@ -18,7 +18,7 @@ function Column({ adicionais, deletePedido, pedidos, titulo, produtos, dragEnd, 
             compras.push(c)
         })
     })
-
+    
     var burgs = []
     var adcs = {}
     produtos.forEach( e => {
